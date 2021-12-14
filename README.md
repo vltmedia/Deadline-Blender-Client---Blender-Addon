@@ -10,8 +10,7 @@ Submit a Blender scene to a Deadline Server.
 3. Install the addon in Blender
 
 4. Set your ```Deadline Bin Path``` in the Addon's preferences.
-
-5. Set the 
+5. Set your ```Repository``` in the Addon's preferences.
 
    ![img](https://github.com/vltmedia/Deadline-Blender-Client---Blender-Addon/blob/master/images/SubmitDeadline_01_pref.png)
 

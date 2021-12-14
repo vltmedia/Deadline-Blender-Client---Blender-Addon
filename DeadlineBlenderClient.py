@@ -59,6 +59,12 @@ class SubmitBlenderToDeadlineAddonPreferences(AddonPreferences):
         default=deadlineBin
         
     )
+    TargetRepository: StringProperty(
+        name="Repository",
+        subtype='DIR_PATH',
+        default='K:/'
+        
+    )
 
     
 
@@ -66,6 +72,7 @@ class SubmitBlenderToDeadlineAddonPreferences(AddonPreferences):
         layout = self.layout
         layout.label(text="Set these preferences")
         layout.prop(self, "DeadlineBinPath")
+        layout.prop(self, "TargetRepository")
 
 def GetDeadlineCommand(*args, **kwargs):
     deadlineBin = ""
@@ -202,7 +209,7 @@ class SubmitToDeadline_Operator (bpy.types.Operator):
         preferences = context.preferences
         addon_prefs = preferences.addons[__name__].preferences
         
-        path = GetRepositoryPath("K:/", preferences =addon_prefs)
+        path = GetRepositoryPath(addon_prefs.TargetRepository, preferences =addon_prefs)
         if path != "":            
             # Add the path to the system path
             if path not in sys.path :
